@@ -1,0 +1,12 @@
+{%- if config.extra.language_switcher %}
+  <nav class="lang" aria-label="{{ trans(key="language", lang=lang) }}">
+    {%- set language_agnostic_path = current_path | default(value="/") | replace(from='/' ~ lang ~ '/', to = '/') | trim_start_matches(pat = '/') %}
+    {%- for tr in config.extra.translations %}
+      {%- if tr.code == lang %}
+        <span class="active">{{ tr.name }}</span>
+      {%- else %}
+        <a href="{{ get_url(path=language_agnostic_path, lang=tr.code) ~ "/" }}" hreflang="{{ tr.code }}" lang="{{ tr.code }}">{{ tr.name }}</a>
+      {%- endif %}
+    {%- endfor %}
+  </nav>
+{%- endif -%}

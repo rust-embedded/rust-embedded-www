@@ -1,0 +1,81 @@
+title = "Zola ʕ•ᴥ•ʔ Bear Blog"
+base_url = "/"
+description = "A Zola-theme based on Bear Blog."
+
+generate_feeds = true
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = false
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+taxonomies = [
+  { name = "categories", feed = true },
+  { name = "tags", feed = true },
+]
+
+default_language = "en"
+
+[translations]
+no_posts = "No posts yet"
+remove_filter = "Remove filter"
+filtering_for = "Filtering for"
+made_with = "Made with"
+table_of_contents = "Table of contents"
+language = "language"
+site = "site"
+
+
+taxonomies = [
+  { name = "categories", feed = true },
+  { name = "tags", feed = true },
+]
+
+[languages.de.translations]
+no_posts = "Keine Einträge"
+remove_filter = "Filter entfernen"
+filtering_for = "Filtern nach"
+made_with = "Erstellt mit"
+table_of_contents = "Inhaltsverzeichnis"
+language = "Sprache"
+site = "Site"
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = false
+
+[extra]
+date_format = "%Y-%m-%d"
+webserver_sends_csp_headers = true
+language_switcher = true
+translations = [
+  { code = "en", name = "English" },
+  { code = "de", name = "Deutsch" },
+]
+
+[extra.table_of_contents]
+show = true
+max_level = 2
+visible_on_load = true
+
+[[extra.main_menu]]
+name = "Home"
+name_de = "Startseite"
+url = "@/_index.md"
+
+[[extra.main_menu]]
+name = "Bear"
+name_de = "Bear"
+url = "@/bear.md"
+
+[[extra.main_menu]]
+name = "Zola"
+name_de = "Zola"
+url = "@/zola.md"
+
+[[extra.main_menu]]
+name = "Blog"
+name_de = "Blog"
+url = "@/blog/_index.md"

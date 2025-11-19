@@ -1,0 +1,12 @@
+{%- macro table_of_contents(toc, max_level) %}
+<ul>
+  {%- for header in toc %}
+    <li>
+      <a href="{{ header.permalink | safe }}">{{ header.title }}</a>
+        {%- if header.children and header.level < max_level %}
+          {{- self::table_of_contents(toc=header.children, max_level=max_level) | indent() | safe() }}
+        {%- endif %}
+    </li>
+  {%- endfor %}
+</ul>
+{%- endmacro %}
