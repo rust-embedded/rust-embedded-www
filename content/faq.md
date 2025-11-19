@@ -65,7 +65,7 @@ compiling to your device.
 For example, let's say we want to know if `rustc` supports cross compiling to
 32-bit RISCV. We check `rustup target list`
 
-``` console
+``` bash
 $ rustup default 1.29.0
 $ rustup target list | grep -i riscv || echo not supported
 not supported
@@ -83,7 +83,7 @@ This indicates that 1.29 doesn't support 32-bit RISCV but that 1.30 will.
 Once you have installed a compilation target using `rustup target add $T` you'll
 be able to cross compile crates to it using `cargo build --target $T`.
 
-``` console
+``` bash
 $ rustup target add riscv32imac-unknown-none-elf
 $ cargo build --target riscv32imac-unknown-none-elf
 ```
@@ -102,7 +102,7 @@ subcommands.
 
 [`cargo-binutils`]: https://github.com/rust-embedded/cargo-binutils
 
-``` console
+``` bash
 $ rustup default nightly-2018-09-18 # this date is just an example
 $ rustup component add llvm-tools
 $ cargo install cargo-binutils
@@ -208,7 +208,7 @@ The first thing to confirm is that correctly measuring the size of your program.
 and contain debug information so measuring their size on disk with e.g. `ls -l`
 will give you the wrong number.
 
-``` console
+``` bash
 $ # 500 KB?
 $ ls -hl target/thumbv7m-none-eabi/debug/app
 -rwxr-xr-x 2 japaric japaric 554K Sep 19 13:37 target/thumbv7m-none-eabi/debug/app
@@ -219,7 +219,7 @@ program or the [`cargo size`] subcommand.
 
 [`cargo size`]: https://github.com/rust-embedded/cargo-binutils
 
-``` console
+``` bash
 $ # ~ 2 KB of Flash
 $ cargo size --bin app -- -A
     Finished dev [unoptimized + debuginfo] target(s) in 0.01s

@@ -56,7 +56,7 @@ to make this change without breaking stable builds.
 If you are affected by this change you'll observe a linker error with a message
 similar to one shown below:
 
-``` console
+``` bash
 $ # these are the custom linker flags of the project
 $ cat .cargo/config
 ```
@@ -90,7 +90,7 @@ The easiest way is to switch back to using `arm-none-eabi-gcc` as the linker. To
 do so pass the flag `-C linker=arm-none-eabi-gcc` to rustc. In the above example
 you can do that in the `.cargo/config` file.
 
-``` console
+``` bash
 $ # these are the custom linker flags of the project
 $ cat .cargo/config
 ```
@@ -120,7 +120,7 @@ accepted by LLD. In the above example the `-nostartfiles` flag can be dropped
 because that's the default behavior of LLD, and the flags prefixed by `-Wl,`
 will have to lose their prefix.
 
-``` console
+``` bash
 $ # these are the custom linker flags of the project
 $ cat .cargo/config
 ```
@@ -137,7 +137,7 @@ rustflags = [
 target = "thumbv7m-none-eabi"
 ```
 
-``` console
+``` bash
 $ cargo build && echo It works now
 It works now
 ```

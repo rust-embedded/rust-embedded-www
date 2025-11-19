@@ -27,7 +27,7 @@ beta channel! :tada:
 
 For example, to cross compile a library crate for the Cortex-M3 you would run these commands:
 
-``` console
+``` bash
 $ # switch to the beta channel
 $ rustup default beta
 
