@@ -1,0 +1,9 @@
+<header>
+  {%- include "language_switcher.html" %}
+  <a href="{{ get_url(path="@/_index.md", lang=lang) }}" class="title">
+    <h1>{{ config.title }}</h1>
+  </a>
+  <nav aria-label="{{ trans(key="site", lang=lang)}}">
+    {%- include "nav.html" %}
+  </nav>
+</header>

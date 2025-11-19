@@ -1,18 +1,21 @@
 # The URL the site will be built for
-base_url = "https://rust-embedded.org"
+# FIXME:
+# base_url = "https://rust-embedded.org"
+base_url = "https://github.io/trappitsch/rust-embedded-www"
 
 title = "Rust Embedded Working Group"
 description = """
 Rust Embedded Working Group
 """
 
+
 # Whether to automatically compile all Sass files in the sass directory
-compile_sass = true
+compile_sass = false
 
 # Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+build_search_index = false
 
-theme = "hyde"
+theme = "zola-bearblog"
 
 generate_feeds = true
 feed_filenames = ["rss.xml"]
@@ -20,11 +23,59 @@ feed_filenames = ["rss.xml"]
 # Whether to do syntax highlighting
 [markdown]
 highlight_code = true
+highlight_theme = "dracula"
+
+taxonomies = [
+    { name = "tags", feed = true },
+]
+
+default_language = "en"
+
+[translations]
+no_posts = "No posts yet"
+remove_filter = "Remove filter"
+filtering_for = "Filtering for"
+made_with = "Made with"
+table_of_contents = "Table of contents"
+language = "language"
+site = "site"
 
 [extra]
-hyde_links = [
-    {url = "https://rust-lang.org", name = "The Rust Language"},
-    {url = "https://github.com/rust-embedded/wg", name = "Embedded WG"},
-    {url = "https://github.com/rust-embedded/blog", name = "The Blog on GitHub"},
-    {url = "https://blog.rust-embedded.org/rss.xml", name = "RSS Feed"},
+# header_logo = "ewg-logo-blue-white-on-transparent-256x256.png"
+header_logo = "ewg-logo-blue-white-on-transparent.svg"
+date_format = "%Y-%m-%d"
+hide_made_with_line = true
+webserver_sends_csp_headers = true
+language_switcher = true
+translations = [
+  { code = "en", name = "English" },
 ]
+
+[extra.social]
+github = "https://github.com/rust-embedded"
+matrix = "https://matrix.to/#/#rust-embedded:matrix.org"
+# bluesky = "url_to_bluesky_profile"
+mastodon = "https://hachyderm.io/@rustembedded"
+
+[extra.table_of_contents]
+show = true
+max_level = 2
+visible_on_load = true
+
+[[extra.main_menu]]
+name = "Home"
+url = "@/_index.md"
+
+[[extra.main_menu]]
+name = "Bookshelf"
+url = "@/bookshelf.md"
+
+[[extra.main_menu]]
+name = "Blog"
+url = "@/blog/_index.md"
+
+[[extra.main_menu]]
+name = "Showcase"
+url = "http://showcase.rust-embedded.org/"
+new_tab = true
+
