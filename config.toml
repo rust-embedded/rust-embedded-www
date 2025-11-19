@@ -1,7 +1,7 @@
 # The URL the site will be built for
 # FIXME:
 # base_url = "https://rust-embedded.org"
-base_url = "https://github.io/trappitsch/rust-embedded-www"
+base_url = "https://trappitsch.github.io/rust-embedded-www/"
 
 title = "Rust Embedded Working Group"
 description = """
