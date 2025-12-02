@@ -1,6 +1,6 @@
 @font-face {
     font-family: "FiraSans";
-    src: url("/fonts/fira_sans/FiraSans-Regular.woff2") format("woff2");
+    src: url("{{ get_url(path="fonts/fira_sans/FiraSans-Regular.woff2", trailing_slash=false) }}") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: "FiraSans";
-    src: url("/fonts/fira_sans/FiraSans-Bold.woff2") format("woff2");
+    src: url("{{ get_url(path="fonts/fira_sans/FiraSans-Bold.woff2", trailing_slash=false) }}") format("woff2");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
