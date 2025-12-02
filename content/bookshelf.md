@@ -1,5 +1,6 @@
 +++
 title = "Embedded Rust documentation"
+template = "page.html"
 +++
 
 Welcome to an overview of the documentation provided by the [embedded Working

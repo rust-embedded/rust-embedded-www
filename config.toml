@@ -72,7 +72,8 @@ url = "@/bookshelf.md"
 
 [[extra.main_menu]]
 name = "Blog"
-url = "@/blog/_index.md"
+url = "https://blog.rust-embedded.org/"
+new_tab = true
 
 [[extra.main_menu]]
 name = "Showcase"
