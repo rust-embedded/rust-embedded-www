@@ -1,3 +1,4 @@
+# adopted from https://www.getzola.org/documentation/deployment/github-pages/
 on: push
 name: Build and deploy GH Pages
 jobs:
@@ -6,8 +7,8 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - name: checkout
-        uses: actions/checkout@v4
-      - name: build_and_deploy
+        uses: actions/checkout@v6
+      - name: build and deploy
         uses: shalzz/zola-deploy-action@master
         env:
           # Target branch

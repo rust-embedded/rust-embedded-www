@@ -21,7 +21,7 @@ We are an [official working group][gov] of the Rust language.
 - The [MB2 Discovery Book][discovery] is a complete walkthrough of Rust development for Embedded Rust beginners, targeted to a platform and filled with examples.
 - The [Embedded Rust Book][book] is our entry point for developers experienced in Rust and embedded.
 - The [Embedonomicon][embedonomicon] covers important "under the hood" topics for advanced Embedded Rust. An appendix provides instructions to vendors wishing to bring their targets into the Embedded Rust ecosystem.
-- We have an entire ["bookshelf"][bookshelf] of embedded Rust documents. Some are a bit out of date, but we encourage you to check there for other things you might want to know.
+- We have an entire ["bookshelf"](@/bookshelf.md) of embedded Rust documents. Some are a bit out of date, but we encourage you to check there for other things you might want to know.
 
 
 ## Want to help?
@@ -44,7 +44,6 @@ Everyone can contribute to the Rust Embedded WG efforts! There are several ways 
 [agenda]: https://github.com/rust-embedded/wg/discussions
 [blog]: https://blog.rust-embedded.org/
 [book]: https://docs.rust-embedded.org/book
-[bookshelf]: https://docs.rust-embedded.org
 [chat]: https://matrix.to/#/#rust-embedded:matrix.org
 [discovery]: https://docs.rust-embedded.org/discovery-mb2/
 [embedonomicon]: https://docs.rust-embedded.org/embedonomicon/

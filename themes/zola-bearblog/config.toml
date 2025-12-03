@@ -26,6 +26,9 @@ table_of_contents = "Table of contents"
 language = "language"
 site = "site"
 
+[languages.de]
+title = "Zola ʕ•ᴥ•ʔ Bear Blog"
+description = "Ein Zola-theme basiert auf Bear Blog."
 
 taxonomies = [
   { name = "categories", feed = true },
