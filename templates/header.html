@@ -1,0 +1,16 @@
+<header>
+  <a href="{{ get_url(path="@/_index.md", lang=lang) }}" class="title">
+    <!-- add image on the right -->
+    {%- if config.extra.header_logo %}
+      <h1 style=" display: flex; align-items: center; justify-content: space-between; margin: 0;">
+        {{ config.title }}
+            <img src="{{ get_url(path=config.extra.header_logo) }}" alt="Logo" style="height: 100px; margin-left: 10px;">
+    </h1>
+    {%- else %}
+    <h1>{{ config.title }}</h1>
+    {%- endif %}
+  </a>
+  <nav aria-label="{{ trans(key="site", lang=lang)}}">
+    {%- include "nav.html" %}
+  </nav>
+</header>
