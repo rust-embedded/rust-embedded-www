@@ -19,9 +19,9 @@ generate_feeds = false
 feed_filenames = ["rss.xml"]
 
 # Whether to do syntax highlighting
-[markdown]
-highlight_code = true
-highlight_theme = "dracula"
+[markdown.highlighting]
+dark_theme = "github-dark"
+light_theme = "github-light"
 
 taxonomies = [
     { name = "tags", feed = true },
