@@ -1,17 +1,39 @@
-# adopted from https://www.getzola.org/documentation/deployment/github-pages/
-on: push
+# adopted from https://github.com/shalzz/zola-deploy-action
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
 name: Build and deploy GH Pages
+
 jobs:
-  build:
+  build_only: # only build for all non-master branches
+   runs-on: ubuntu-latest
+   if: github.ref != 'refs/heads/master'
+   steps:
+     - name: Checkout master 
+       uses: actions/checkout@v6
+       with:
+         submodules: recursive
+     - name: Build only
+       uses: shalzz/zola-deploy-action@v0.22.0
+       env:
+         BUILD_ONLY: true
+         BUILD_FLAGS: --drafts
+
+  build_and_deploy: # build an deploy for master branch
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: >-
+      github.ref == 'refs/heads/master' &&
+      github.repository_owner == 'rust-embedded'
     steps:
       - name: checkout
         uses: actions/checkout@v6
         with:
           submodules: recursive
-      - name: build and deploy
-        uses: shalzz/zola-deploy-action@master
+      - name: Build and deploy
+        uses: shalzz/zola-deploy-action@v0.22.0
         env:
           # Target branch
           PAGES_BRANCH: gh-pages
