@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | Rust Embedded Working Group</title>
+  <meta name="title" content="Frequently Asked Questions">
+<meta name="description" content="Rust Embedded Working Group
+">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+  <style>
+  @font-face {
+    font-family: "FiraSans";
+    src: url("https://rust-embedded.org/fonts/fira_sans/FiraSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FiraSans";
+    src: url("https://rust-embedded.org/fonts/fira_sans/FiraSans-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+  --width: 800px;
+  --font-main: "FiraSans", Helvetica, Arial, sans-serif;
+  --font-secondary: "FiraSans", Helvetica, Arial, sans-serif;
+  --font-scale: 1em;
+  --background-color: #fff;
+  --heading-color: #202020;
+  --text-color: #000000;
+  --link-color: #1a78c0;
+  --visited-color: #1a78c0;
+  --blockquote-color: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #202020;
+    --heading-color: #EEEEEE;
+    --text-color: #FFFFFF;
+    --link-color: #6ACFF6;
+    --visited-color: #6ACFF6;
+    --blockquote-color: #ccc;
+  }
+}
+
+body {
+  font-family: var(--font-secondary);
+  font-size: var(--font-scale);
+  margin: auto;
+  padding: 20px;
+  max-width: var(--width);
+  text-align: left;
+  background-color: var(--background-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  color: var(--heading-color);
+}
+
+a {
+  color: var(--link-color);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav a {
+  margin-right: 8px;
+}
+
+nav span.active {
+  font-weight: bold;
+  margin-right: 10px;
+}
+strong,
+b {
+  color: var(--heading-color);
+}
+
+button {
+  margin: 0;
+  cursor: pointer;
+}
+
+main {
+  line-height: 1.6;
+}
+
+table {
+  width: 100%;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dashed;
+}
+
+img {
+  max-width: 100%;
+}
+
+pre code {
+  background-color: var(--code-background-color);
+  color: var(--code-color);
+  display: block;
+  padding: 20px;
+  white-space: pre-wrap;
+  font-size: 0.875rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: monospace;
+  padding: 2px;
+  background-color: var(--code-background-color);
+  color: var(--code-color);
+  border-radius: 3px;
+}
+
+blockquote {
+  border-left: 1px solid #999;
+  color: var(--code-color);
+  padding-left: 20px;
+  font-style: italic;
+}
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+}
+
+.title:hover {
+  text-decoration: none;
+}
+
+.title h1 {
+  font-size: 1.5em;
+}
+
+.inline {
+  width: auto !important;
+}
+
+.highlight,
+.code {
+  padding: 1px 15px;
+  background-color: var(--code-background-color);
+  color: var(--code-color);
+  border-radius: 3px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  overflow-x: auto;
+}
+
+/* blog post list */
+ul.blog-posts {
+  list-style-type: none;
+  padding: unset;
+}
+
+ul.blog-posts li {
+  display: flex;
+}
+
+ul.blog-posts li span {
+  flex: 0 0 130px;
+}
+
+ul.blog-posts li a:visited {
+  color: var(--visited-color);
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  color: var(--text-color);
+}
+
+.tags {
+  font-size: smaller;
+}
+
+.footnote-definition {
+  display: flex;
+  margin-top: 1em;
+}
+.footnote-definition-label {
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+  vertical-align: baseline;
+}
+.footnote-definition-label::after {
+  content: "."
+}
+.footnote-definition > p {
+  margin: 0;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+  <a href="https://rust-embedded.org/" class="title">
+    <!-- add image on the right -->
+      <h1 style=" display: flex; align-items: center; justify-content: space-between; margin: 0;">
+        Rust Embedded Working Group
+            <img src="https://rust-embedded.org/ewg-logo-blue-white-on-transparent.svg" alt="Logo" style="height: 100px; margin-left: 10px;">
+    </h1>
+  </a>
+  <nav aria-label="site">
+      <a href="https://rust-embedded.org/">Home</a>
+      <a href="https://rust-embedded.org/bookshelf/">Bookshelf</a>
+        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;", target="_blank">Blog</a>
+        <a href="http:&#x2F;&#x2F;showcase.rust-embedded.org&#x2F;", target="_blank">Showcase</a>
+  </nav>
+</header>
+<h1>Frequently Asked Questions</h1>
+    <details open>
+      <summary>Table of contents</summary>
+    <ul>
+        <li>
+          <a href="https://rust-embedded.org/faq/#does-rust-support-my-device">Does Rust support my device?</a>
+        <ul>
+            <li>
+              <a href="https://rust-embedded.org/faq/#short-answer">Short answer</a>
+            </li>
+            <li>
+              <a href="https://rust-embedded.org/faq/#long-answer">Long answer</a>
+            </li>
+        </ul>
+        </li>
+        <li>
+          <a href="https://rust-embedded.org/faq/#when-will-rust-support-the-avr-architecture">(When) will Rust support the AVR architecture?</a>
+        </li>
+        <li>
+          <a href="https://rust-embedded.org/faq/#when-will-rust-support-the-xtensa-architecture">(When) will Rust support the Xtensa architecture?</a>
+        </li>
+        <li>
+          <a href="https://rust-embedded.org/faq/#my-embedded-rust-program-is-too-big">My embedded Rust program is too big!</a>
+        </li>
+        <li>
+          <a href="https://rust-embedded.org/faq/#i-m-trying-to-follow-the-book-but-my-program-won-t-flash">I&#x27;m trying to follow the book but my program won&#x27;t flash</a>
+        </li>
+        <li>
+          <a href="https://rust-embedded.org/faq/#my-program-just-halts-without-connected-debugger-what-am-i-doing-wrong">My program just halts without connected debugger. What am I doing wrong?</a>
+        <ul>
+            <li>
+              <a href="https://rust-embedded.org/faq/#short-answer-1">Short answer</a>
+            </li>
+            <li>
+              <a href="https://rust-embedded.org/faq/#long-answer-1">Long answer</a>
+            </li>
+        </ul>
+        </li>
+    </ul>
+    </details>
+  <main>
+    <h1 id="does-rust-support-my-device">Does Rust support my device?</h1>
+<h2 id="short-answer">Short answer</h2>
+<p>As of 2018-09-18 the Rust compiler supports cross compiling to these embedded
+architectures (see <code>rustup target list</code>):</p>
+<ul>
+<li>ARM Cortex-M (since 1.27)
+<ul>
+<li><code>thumbv6m-none-eabi</code>, Cortex-M0</li>
+<li><code>thumbv7m-none-eabi</code>, Cortex-M3</li>
+<li><code>thumbv7em-none-eabi</code>, Cortex-M4 and Cortex-M7</li>
+<li><code>thumbv7em-none-eabihf</code>, Cortex-M4F and Cortex-M7F</li>
+</ul>
+</li>
+<li>ARM Cortex-R (1.30-beta)
+<ul>
+<li><code>armebv7r-none-eabi</code>, big endian Cortex-R4 and Cortex-R5</li>
+<li><code>armebv7r-none-eabihf</code>, big endian Cortex-R4F and Cortex-R5F</li>
+<li><code>armv7r-none-eabi</code>, little endian Cortex-R4 and Cortex-R5</li>
+<li><code>armv7r-none-eabihf</code>, little endian Cortex-R4F and Cortex-R5F</li>
+</ul>
+</li>
+<li>ARM Linux
+<ul>
+<li>ARMv5TE (e.g. ARM926EJ-S),</li>
+<li>ARMv6 (e.g. ARM11 as found in the Raspberry Pi 1 / Zero),</li>
+<li>ARMv7-A (e.g. Cortex-A8 as found in the Beaglebones),</li>
+<li>and ARMv8 (e.g. Cortex-A53 as found in the ODROID-C2) ...</li>
+<li>... in GNU and MUSL flavors and in soft float and hard float variants;</li>
+<li>notably, support for ARMv4T (e.g. ARM7) and older versions is missing.</li>
+</ul>
+</li>
+<li>RISCV (1.30-beta)
+<ul>
+<li><code>riscv32imac-unknown-none-elf</code>, RV32I base instruction set with M, A and C
+extensions</li>
+<li><code>riscv32imc-unknown-none-elf</code>, RV32I base instruction set with M, and C
+extensions</li>
+</ul>
+</li>
+</ul>
+<p><code>rustc</code> also supports code generation for the MSP430 architecture (see <code>rustc --print target-list</code>).</p>
+<p>In general, ARM Cortex-M and ARM Linux have the most mature ecosystems whereas
+the ARM Cortex-R, MSP430 and RISCV ecosystems are in early stages or not as
+mature.</p>
+<p>For specific device support check <a rel="external" href="https://github.com/rust-embedded/awesome-embedded-rust">awesome-embedded-rust</a>.</p>
+<h2 id="long-answer">Long answer</h2>
+<p>We can talk about support at different levels: does the compiler support my
+device? does the crate ecosystem support my device?</p>
+<p>Let's start with compiler support. The compiler supports architectures or ISA
+(Instruction Set Architectures) rather than specific devices. Compiler support
+can be further divided in two levels: compilation target support and
+architecture support.</p>
+<h3 id="compilation-target-support">Compilation target support</h3>
+<p>By compilation target support we mean that you can readily cross compile a crate
+for a certain <em>compilation target</em> using Cargo. To keep the default installation
+slim only the native compilation target is installed and other targets have to
+be installed using the <code>rustup target</code> subcommand. If <code>rustup target list</code> lists
+a compilation target that matches your device then Cargo supports cross
+compiling to your device.</p>
+<p>For example, let's say we want to know if <code>rustc</code> supports cross compiling to
+32-bit RISCV. We check <code>rustup target list</code></p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> rustup</span><span style="color: light-dark(#032F62, #9ECBFF);"> default</span><span style="color: light-dark(#005CC5, #79B8FF);"> 1.29.0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> rustup</span><span style="color: light-dark(#032F62, #9ECBFF);"> target</span><span style="color: light-dark(#032F62, #9ECBFF);"> list</span><span style="color: light-dark(#D73A49, #F97583);"> |</span><span style="color: light-dark(#6F42C1, #B392F0);"> grep</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">i</span><span style="color: light-dark(#032F62, #9ECBFF);"> riscv</span><span style="color: light-dark(#D73A49, #F97583);"> |</span><span style="color: light-dark(#D73A49, #F97583);">|</span><span style="color: light-dark(#005CC5, #79B8FF);"> echo</span><span style="color: light-dark(#032F62, #9ECBFF);"> not</span><span style="color: light-dark(#032F62, #9ECBFF);"> supported</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">not</span><span style="color: light-dark(#032F62, #9ECBFF);"> supported</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> rustup</span><span style="color: light-dark(#032F62, #9ECBFF);"> default</span><span style="color: light-dark(#032F62, #9ECBFF);"> nightly-2018-09-18</span><span style="color: light-dark(#6A737D, #6A737D);"> #</span><span style="color: light-dark(#6A737D, #6A737D);"> this date is just an example</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> rustc</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">V</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">rustc</span><span style="color: light-dark(#032F62, #9ECBFF);"> 1.30.0-nightly</span><span> (2224a42c3</span><span style="color: light-dark(#032F62, #9ECBFF);"> 2018-09-17</span><span>)</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> rustup</span><span style="color: light-dark(#032F62, #9ECBFF);"> target</span><span style="color: light-dark(#032F62, #9ECBFF);"> list</span><span style="color: light-dark(#D73A49, #F97583);"> |</span><span style="color: light-dark(#6F42C1, #B392F0);"> grep</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">i</span><span style="color: light-dark(#032F62, #9ECBFF);"> riscv</span><span style="color: light-dark(#D73A49, #F97583);"> |</span><span style="color: light-dark(#D73A49, #F97583);">|</span><span style="color: light-dark(#005CC5, #79B8FF);"> echo</span><span style="color: light-dark(#032F62, #9ECBFF);"> not</span><span style="color: light-dark(#032F62, #9ECBFF);"> supported</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">riscv32imac-unknown-none-elf</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">riscv32imc-unknown-none-elf</span></span></code></pre>
+<p>This indicates that 1.29 doesn't support 32-bit RISCV but that 1.30 will.</p>
+<p>Once you have installed a compilation target using <code>rustup target add $T</code> you'll
+be able to cross compile crates to it using <code>cargo build --target $T</code>.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> rustup</span><span style="color: light-dark(#032F62, #9ECBFF);"> target</span><span style="color: light-dark(#032F62, #9ECBFF);"> add</span><span style="color: light-dark(#032F62, #9ECBFF);"> riscv32imac-unknown-none-elf</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> cargo</span><span style="color: light-dark(#032F62, #9ECBFF);"> build</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-target</span><span style="color: light-dark(#032F62, #9ECBFF);"> riscv32imac-unknown-none-elf</span></span></code></pre><h3 id="architecture-support">Architecture support</h3>
+<p>If your device doesn't appear in <code>rustup target list</code> that doesn't mean that
+<code>rustc</code> doesn't support your device at all. It could still support code
+generation for your device <em>architecture</em>. <code>rustc</code> uses LLVM to generate machine
+code; if the LLVM backend for your device architecture is enabled in <code>rustc</code>
+then <code>rustc</code> can produce assembly and/or object files for that architecture.</p>
+<p>The easiest way to list the architectures that LLVM supports is to run
+<code>cargo objdump -- -version</code> where <code>cargo-objdump</code> is one of <a rel="external" href="https://github.com/rust-embedded/cargo-binutils"><code>cargo-binutils</code></a>
+subcommands.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> rustup</span><span style="color: light-dark(#032F62, #9ECBFF);"> default</span><span style="color: light-dark(#032F62, #9ECBFF);"> nightly-2018-09-18</span><span style="color: light-dark(#6A737D, #6A737D);"> #</span><span style="color: light-dark(#6A737D, #6A737D);"> this date is just an example</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> rustup</span><span style="color: light-dark(#032F62, #9ECBFF);"> component</span><span style="color: light-dark(#032F62, #9ECBFF);"> add</span><span style="color: light-dark(#032F62, #9ECBFF);"> llvm-tools</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> cargo</span><span style="color: light-dark(#032F62, #9ECBFF);"> install</span><span style="color: light-dark(#032F62, #9ECBFF);"> cargo-binutils</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> cargo</span><span style="color: light-dark(#032F62, #9ECBFF);"> objdump</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">version</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">LLVM</span><span> (http://llvm.org/</span><span>):</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">  LLVM</span><span style="color: light-dark(#032F62, #9ECBFF);"> version</span><span style="color: light-dark(#032F62, #9ECBFF);"> 8.0.0svn</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">  Optimized</span><span style="color: light-dark(#032F62, #9ECBFF);"> build.</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">  Default</span><span style="color: light-dark(#032F62, #9ECBFF);"> target:</span><span style="color: light-dark(#032F62, #9ECBFF);"> x86_64-unknown-linux-gnu</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">  Host</span><span style="color: light-dark(#032F62, #9ECBFF);"> CPU:</span><span style="color: light-dark(#032F62, #9ECBFF);"> skylake</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">  Registered</span><span style="color: light-dark(#032F62, #9ECBFF);"> Targets:</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    aarch64</span><span style="color: light-dark(#032F62, #9ECBFF);">    -</span><span style="color: light-dark(#032F62, #9ECBFF);"> AArch64</span><span> (little</span><span style="color: light-dark(#032F62, #9ECBFF);"> endian</span><span>)</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    aarch64_be</span><span style="color: light-dark(#032F62, #9ECBFF);"> -</span><span style="color: light-dark(#032F62, #9ECBFF);"> AArch64</span><span> (big</span><span style="color: light-dark(#032F62, #9ECBFF);"> endian</span><span>)</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    arm</span><span style="color: light-dark(#032F62, #9ECBFF);">        -</span><span style="color: light-dark(#032F62, #9ECBFF);"> ARM</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    arm64</span><span style="color: light-dark(#032F62, #9ECBFF);">      -</span><span style="color: light-dark(#032F62, #9ECBFF);"> ARM64</span><span> (little</span><span style="color: light-dark(#032F62, #9ECBFF);"> endian</span><span>)</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    armeb</span><span style="color: light-dark(#032F62, #9ECBFF);">      -</span><span style="color: light-dark(#032F62, #9ECBFF);"> ARM</span><span> (big</span><span style="color: light-dark(#032F62, #9ECBFF);"> endian</span><span>)</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    hexagon</span><span style="color: light-dark(#032F62, #9ECBFF);">    -</span><span style="color: light-dark(#032F62, #9ECBFF);"> Hexagon</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    mips</span><span style="color: light-dark(#032F62, #9ECBFF);">       -</span><span style="color: light-dark(#032F62, #9ECBFF);"> Mips</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    mips64</span><span style="color: light-dark(#032F62, #9ECBFF);">     -</span><span style="color: light-dark(#032F62, #9ECBFF);"> Mips64</span><span> [experimental</span><span>]</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    mips64el</span><span style="color: light-dark(#032F62, #9ECBFF);">   -</span><span style="color: light-dark(#032F62, #9ECBFF);"> Mips64el</span><span> [experimental</span><span>]</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    mipsel</span><span style="color: light-dark(#032F62, #9ECBFF);">     -</span><span style="color: light-dark(#032F62, #9ECBFF);"> Mipsel</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    msp430</span><span style="color: light-dark(#032F62, #9ECBFF);">     -</span><span style="color: light-dark(#032F62, #9ECBFF);"> MSP430</span><span> [experimental</span><span>]</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    nvptx</span><span style="color: light-dark(#032F62, #9ECBFF);">      -</span><span style="color: light-dark(#032F62, #9ECBFF);"> NVIDIA</span><span style="color: light-dark(#032F62, #9ECBFF);"> PTX</span><span style="color: light-dark(#032F62, #9ECBFF);"> 32-bit</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    nvptx64</span><span style="color: light-dark(#032F62, #9ECBFF);">    -</span><span style="color: light-dark(#032F62, #9ECBFF);"> NVIDIA</span><span style="color: light-dark(#032F62, #9ECBFF);"> PTX</span><span style="color: light-dark(#032F62, #9ECBFF);"> 64-bit</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    ppc32</span><span style="color: light-dark(#032F62, #9ECBFF);">      -</span><span style="color: light-dark(#032F62, #9ECBFF);"> PowerPC</span><span style="color: light-dark(#005CC5, #79B8FF);"> 32</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    ppc64</span><span style="color: light-dark(#032F62, #9ECBFF);">      -</span><span style="color: light-dark(#032F62, #9ECBFF);"> PowerPC</span><span style="color: light-dark(#005CC5, #79B8FF);"> 64</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    ppc64le</span><span style="color: light-dark(#032F62, #9ECBFF);">    -</span><span style="color: light-dark(#032F62, #9ECBFF);"> PowerPC</span><span style="color: light-dark(#005CC5, #79B8FF);"> 64</span><span style="color: light-dark(#032F62, #9ECBFF);"> LE</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    riscv32</span><span style="color: light-dark(#032F62, #9ECBFF);">    -</span><span style="color: light-dark(#032F62, #9ECBFF);"> 32-bit</span><span style="color: light-dark(#032F62, #9ECBFF);"> RISC-V</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    riscv64</span><span style="color: light-dark(#032F62, #9ECBFF);">    -</span><span style="color: light-dark(#032F62, #9ECBFF);"> 64-bit</span><span style="color: light-dark(#032F62, #9ECBFF);"> RISC-V</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    sparc</span><span style="color: light-dark(#032F62, #9ECBFF);">      -</span><span style="color: light-dark(#032F62, #9ECBFF);"> Sparc</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    sparcel</span><span style="color: light-dark(#032F62, #9ECBFF);">    -</span><span style="color: light-dark(#032F62, #9ECBFF);"> Sparc</span><span style="color: light-dark(#032F62, #9ECBFF);"> LE</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    sparcv9</span><span style="color: light-dark(#032F62, #9ECBFF);">    -</span><span style="color: light-dark(#032F62, #9ECBFF);"> Sparc</span><span style="color: light-dark(#032F62, #9ECBFF);"> V9</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    systemz</span><span style="color: light-dark(#032F62, #9ECBFF);">    -</span><span style="color: light-dark(#032F62, #9ECBFF);"> SystemZ</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    thumb</span><span style="color: light-dark(#032F62, #9ECBFF);">      -</span><span style="color: light-dark(#032F62, #9ECBFF);"> Thumb</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    thumbeb</span><span style="color: light-dark(#032F62, #9ECBFF);">    -</span><span style="color: light-dark(#032F62, #9ECBFF);"> Thumb</span><span> (big</span><span style="color: light-dark(#032F62, #9ECBFF);"> endian</span><span>)</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    wasm32</span><span style="color: light-dark(#032F62, #9ECBFF);">     -</span><span style="color: light-dark(#032F62, #9ECBFF);"> WebAssembly</span><span style="color: light-dark(#032F62, #9ECBFF);"> 32-bit</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    wasm64</span><span style="color: light-dark(#032F62, #9ECBFF);">     -</span><span style="color: light-dark(#032F62, #9ECBFF);"> WebAssembly</span><span style="color: light-dark(#032F62, #9ECBFF);"> 64-bit</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    x86</span><span style="color: light-dark(#032F62, #9ECBFF);">        -</span><span style="color: light-dark(#032F62, #9ECBFF);"> 32-bit</span><span style="color: light-dark(#032F62, #9ECBFF);"> X86:</span><span style="color: light-dark(#032F62, #9ECBFF);"> Pentium-Pro</span><span style="color: light-dark(#032F62, #9ECBFF);"> and</span><span style="color: light-dark(#032F62, #9ECBFF);"> above</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    x86-64</span><span style="color: light-dark(#032F62, #9ECBFF);">     -</span><span style="color: light-dark(#032F62, #9ECBFF);"> 64-bit</span><span style="color: light-dark(#032F62, #9ECBFF);"> X86:</span><span style="color: light-dark(#032F62, #9ECBFF);"> EM64T</span><span style="color: light-dark(#032F62, #9ECBFF);"> and</span><span style="color: light-dark(#032F62, #9ECBFF);"> AMD64</span></span></code></pre>
+<p>If your device architecture is not there that means <code>rustc</code> doesn't support your
+device. It could be that LLVM doesn't support the architecture (e.g. Xtensa,
+ESP8266's architecture) or that LLVM's support for the architecture is not
+considered stable enough and has not been enabled in <code>rustc</code> (e.g. AVR, the
+architecture most commonly found in Arduino microcontrollers).</p>
+<p>If your device architecture is there then that means that, in principle, <code>rustc</code>
+supports your device. However, an architecture like ARM can be very broad
+covering several ISAs and extensions. Instead, you'll want to work with a
+compilation target tailored to your device. Custom compilation targets are out
+of scope for this document; you should refer to the <a rel="external" href="https://rust-embedded.github.io/embedonomicon/compiler-support.html">embedonomicon</a> for more
+information.</p>
+<h3 id="crate-ecosystem-support">Crate ecosystem support</h3>
+<p>Crate ecosystem support can range from generic support for the architecture to
+device-specific support. We recommend that you search on crates.io for the
+architecture (e.g. ARM or Cortex-M), for the microcontroller vendor (e.g.
+STM32), for the target device (e.g. STM32F103) and the target development board
+(e.g. STM32F3DISCOVERY). We also suggest that you check the
+<a rel="external" href="https://github.com/rust-embedded/awesome-embedded-rust">awesome-embedded-rust</a> list and <a rel="external" href="https://github.com/rust-embedded/wg#organization">the crates maintained by the embedded Working
+Group</a>.</p>
+<h1 id="when-will-rust-support-the-avr-architecture">(When) will Rust support the AVR architecture?</h1>
+<p>As of 2020-07-24 the support for AVR have been merged into the nightly version of
+the official Rust compiler, <code>rustc</code>. See the RFC for merging the <a rel="external" href="https://github.com/rust-lang/rust/issues/44052#issuecomment-663394401%5D.">avr-rust fork</a>.</p>
+<h1 id="when-will-rust-support-the-xtensa-architecture">(When) will Rust support the Xtensa architecture?</h1>
+<p>As of 2020-08-24 the official Rust compiler, <code>rustc</code>, relies on LLVM for
+generating machine code. It's a requirement that LLVM supports an architecture
+for <code>rustc</code> to support it.</p>
+<p>There is no support for the Xtensa architecture in LLVM proper. You may be able
+to find several forks of LLVM with varying levels of support for the Xtensa
+architecture but <code>rustc</code> will not be able to use any of those forks due to the
+maintenance and infrastructure costs of developing <code>rustc</code> against different
+versions of LLVM.</p>
+<p>TL;DR <code>rustc</code> will support the Xtensa architecture when the official LLVM gains
+support for the Xtensa architecture. As LLVM is a project independent of the
+Rust project we can't give you any estimate on when that might happen. A list of
+submitted patches can be found on this <a rel="external" href="https://reviews.llvm.org/W486">LLVM dashboard</a>.</p>
+<h1 id="my-embedded-rust-program-is-too-big">My embedded Rust program is too big!</h1>
+<p>We sometimes get questions like this one: "My Rust program is 500 KB but my
+microcontroller only has 16 KB of Flash; how can I make it fit?".</p>
+<p>The first thing to confirm is that correctly measuring the size of your program.
+<code>rustc</code> produces ELF files for most embedded targets. ELF files have metadata
+and contain debug information so measuring their size on disk with e.g. <code>ls -l</code>
+will give you the wrong number.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#6A737D, #6A737D);"> #</span><span style="color: light-dark(#6A737D, #6A737D);"> 500 KB?</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> ls</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">hl</span><span style="color: light-dark(#032F62, #9ECBFF);"> target/thumbv7m-none-eabi/debug/app</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">-rwxr-xr-x</span><span style="color: light-dark(#005CC5, #79B8FF);"> 2</span><span style="color: light-dark(#032F62, #9ECBFF);"> japaric</span><span style="color: light-dark(#032F62, #9ECBFF);"> japaric</span><span style="color: light-dark(#032F62, #9ECBFF);"> 554K</span><span style="color: light-dark(#032F62, #9ECBFF);"> Sep</span><span style="color: light-dark(#005CC5, #79B8FF);"> 19</span><span style="color: light-dark(#032F62, #9ECBFF);"> 13:37</span><span style="color: light-dark(#032F62, #9ECBFF);"> target/thumbv7m-none-eabi/debug/app</span></span></code></pre>
+<p>The correct way to measure the size of an embedded program is to use the <code>size</code>
+program or the <a rel="external" href="https://github.com/rust-embedded/cargo-binutils"><code>cargo size</code></a> subcommand.</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="shellscript"><span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#6A737D, #6A737D);"> #</span><span style="color: light-dark(#6A737D, #6A737D);"> ~ 2 KB of Flash</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">$</span><span style="color: light-dark(#032F62, #9ECBFF);"> cargo</span><span style="color: light-dark(#032F62, #9ECBFF);"> size</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-bin</span><span style="color: light-dark(#032F62, #9ECBFF);"> app</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">-</span><span style="color: light-dark(#005CC5, #79B8FF);"> -</span><span style="color: light-dark(#005CC5, #79B8FF);">A</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">    Finished</span><span style="color: light-dark(#032F62, #9ECBFF);"> dev</span><span> [unoptimized</span><span style="color: light-dark(#032F62, #9ECBFF);"> +</span><span style="color: light-dark(#032F62, #9ECBFF);"> debuginfo]</span><span style="color: light-dark(#032F62, #9ECBFF);"> target</span><span>(</span><span style="color: light-dark(#6F42C1, #B392F0);">s</span><span>)</span><span style="color: light-dark(#032F62, #9ECBFF);"> in</span><span style="color: light-dark(#032F62, #9ECBFF);"> 0.01s</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">app</span><span style="color: light-dark(#032F62, #9ECBFF);">  :</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">section</span><span style="color: light-dark(#032F62, #9ECBFF);">               size</span><span style="color: light-dark(#032F62, #9ECBFF);">        addr</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.vector_table</span><span style="color: light-dark(#005CC5, #79B8FF);">         1024</span><span style="color: light-dark(#005CC5, #79B8FF);">   0x8000000</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.text</span><span style="color: light-dark(#005CC5, #79B8FF);">                  776</span><span style="color: light-dark(#005CC5, #79B8FF);">   0x8000400</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.rodata</span><span style="color: light-dark(#005CC5, #79B8FF);">                208</span><span style="color: light-dark(#005CC5, #79B8FF);">   0x8000708</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.data</span><span style="color: light-dark(#005CC5, #79B8FF);">                    0</span><span style="color: light-dark(#005CC5, #79B8FF);">  0x20000000</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.bss</span><span style="color: light-dark(#005CC5, #79B8FF);">                     0</span><span style="color: light-dark(#005CC5, #79B8FF);">  0x20000000</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.debug_str</span><span style="color: light-dark(#005CC5, #79B8FF);">          145354</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.debug_abbrev</span><span style="color: light-dark(#005CC5, #79B8FF);">        11264</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.debug_info</span><span style="color: light-dark(#005CC5, #79B8FF);">         139259</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.debug_macinfo</span><span style="color: light-dark(#005CC5, #79B8FF);">          33</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.debug_pubnames</span><span style="color: light-dark(#005CC5, #79B8FF);">      40901</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.debug_pubtypes</span><span style="color: light-dark(#005CC5, #79B8FF);">      14326</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.ARM.attributes</span><span style="color: light-dark(#005CC5, #79B8FF);">         50</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.debug_frame</span><span style="color: light-dark(#005CC5, #79B8FF);">         21224</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.debug_line</span><span style="color: light-dark(#005CC5, #79B8FF);">         117666</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.debug_ranges</span><span style="color: light-dark(#005CC5, #79B8FF);">        63800</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">.comment</span><span style="color: light-dark(#005CC5, #79B8FF);">                75</span><span style="color: light-dark(#005CC5, #79B8FF);">         0x0</span></span>
+<span class="giallo-l"><span style="color: light-dark(#6F42C1, #B392F0);">Total</span><span style="color: light-dark(#005CC5, #79B8FF);">               555960</span></span></code></pre>
+<p>Of the standard sections, <code>.vector_table</code>, <code>.text</code>, <code>.rodata</code> and <code>.data</code> will
+occupy Flash / ROM; <code>.bss</code> and <code>.data</code> will occupy RAM; <code>.debug_*</code>,
+<code>.ARM.attributes</code> and <code>.comments</code> can be ignored as they won't be loaded into
+the target device memory. (<code>.data</code> is initially placed in
+Flash / ROM, but copied to RAM during startup to make it writable.) For the other sections you'll have to check your
+dependencies' docs.</p>
+<p>In this example the uploaded software will occupy <code>2008</code> bytes of Flash.</p>
+<p>Note that most (all?) runtime crates, like <code>cortex-m-rt</code>, will check at link
+time that the program fits in the target device memory. If it doesn't fit you'll
+get a linker error and no output binary. So, provided that you correctly entered
+the size of the memory regions of your device then if it links it should fit in
+the target device!</p>
+<p>If you are measuring size using the right method and your program is still too
+big then check out our section on optimizations.</p>
+<blockquote>
+<p><strong>TODO</strong>(resources team) add link to the optimizations section</p>
+</blockquote>
+<h1 id="i-m-trying-to-follow-the-book-but-my-program-won-t-flash">I'm trying to follow the book but my program won't flash</h1>
+<p>It is quite common that by oversight the linker configuration is not suitable
+for the target device. Indications for such a problem are loading errors in <code>gdb</code>:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>(gdb) load</span></span>
+<span class="giallo-l"><span>Loading section .vector_table, size 0x400 lma 0x0</span></span>
+<span class="giallo-l"><span>Loading section .text, size 0x2064 lma 0x400</span></span>
+<span class="giallo-l"><span>Load failed</span></span></code></pre>
+<p>Please note the <code>lma</code> which is the loading address and needs to match up with the
+start address of the flash.</p>
+<p>Similarly <code>openocd</code> will indicate such a problem:</p>
+<pre class="giallo" style="color-scheme: light dark; color: light-dark(#24292E, #E1E4E8); background-color: light-dark(#FFFFFF, #24292E);"><code data-lang="plain"><span class="giallo-l"><span>...</span></span>
+<span class="giallo-l"><span>auto erase enabled</span></span>
+<span class="giallo-l"><span>Info : device id = 0x10036422</span></span>
+<span class="giallo-l"><span>Info : flash size = 256kbytes</span></span>
+<span class="giallo-l"><span>Warn : no flash bank found for address 0</span></span>
+<span class="giallo-l"><span>wrote 0 bytes from file target/thumbv7em-none-eabihf/debug/examples/hello in 0.001434s (0.000 KiB/s)</span></span></code></pre>
+<p>If you see such a message you will need to check your linker configuration, usually in
+<code>memory.x</code> for the correct addresses (and ideally also sizes). Please also note that
+after a change you will need to <code>cargo clean</code> and rebuild to use the changed addresses.</p>
+<h1 id="my-program-just-halts-without-connected-debugger-what-am-i-doing-wrong">My program just halts without connected debugger. What am I doing wrong?</h1>
+<h2 id="short-answer-1">Short answer</h2>
+<p>If you're using <code>semihosting</code>, switch to a different input / output mechanism.</p>
+<h2 id="long-answer-1">Long answer</h2>
+<p>An embedded MCU will typically stop  working if exceptions (which is the MCUs way
+of signalling special or abnormal events) occur which are not handled and cleared,
+either by an exception handler or a connected debugger. The latter case is especially
+interesting because there's a method of interacting with a connected computer
+dubbed <code>semihosting</code> which will work iff a debugger is properly connected
+and debugging software running and correctly set up. This method uses special
+processor instructions (e.g. a service or breakpoint call) to alert the connected
+system about input and/or output requests from the device. If no debugger is
+available to handle such a situation, the system either wait indefinitely or
+generate an even stronger exception which can only be cleared by a reset.</p>
+<p>There're two common scenarios which cause such a lockup unintentionally:</p>
+<ul>
+<li>The use of semihosting as input / output channel, e.g. via <code>cortex-m-semihosting</code> crate</li>
+<li>A <code>panic</code> in the program with the <code>panic-semihosting</code> crate in use, however the
+occurence of a <code>panic</code> means that the program is defunct anyway</li>
+</ul>
+<p>Please note that examples may make use of the <code>semihosting</code> concept but this
+should not be used in production setups due to the lack of connected debugger and
+a host running appropriate debugging software. The use of a serial interface is
+often a better choice. However if you just would like to see your example running
+please make sure your setup is ready to deal with the <code>semihosting</code> requirements.</p>
+
+  </main>
+  <p>
+  </p>
+<!-- <link rel="stylesheet" href="https://rust-embedded.org/fonts/fontawesome/css/all.min.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous">
+
+<footer>
+    <a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded", target="_blank">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <strong>
+      <!-- This is the Matrix icon as an inline SVG -->
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <a href="https:&#x2F;&#x2F;matrix.to&#x2F;#&#x2F;#rust-embedded:matrix.org", target="_blank">
+          <path
+              fill="currentColor"
+              d="
+                M .632 .55 v 22.9 H 2.28 V 24 H 0 V 0 h 2.28 v .55
+                zm
+                7.043 7.26 v 1.157 h .033
+                  c .309 -.443 .683 -.784 1.117 -1.024
+                  .433 -.245 .936 -.365 1.5 -.365
+                  .54 0 1.033 .107 1.481 .314
+                  .448 .208 .785 .582 1.02 1.108
+                  .254 -.374 .6 -.706 1.034 -.992
+                  .434 -.287 .95 -.43 1.546 -.43
+                  .453 0 .872 .056 1.26 .167
+                  .388 .11 .716 .286 .993 .53
+                  .276 .245 .489 .559 .646 .951
+                  .152 .392 .23 .863 .23 1.417
+                  v 5.728 h -2.349 V 11.52
+                  c 0 -.286 -.01 -.559 -.032 -.812
+                  a 1.755 1.755 0 0 0 -.18 -.66
+                  1.106 1.106 0 0 0 -.438 -.448
+                  c -.194 -.11 -.457 -.166 -.785 -.166
+                  -.332 0 -.6 .064 -.803 .189
+                  a 1.38 1.38 0 0 0 -.48 .499
+                  1.946 1.946 0 0 0 -.231 .696
+                  5.56 5.56 0 0 0 -.06 .785
+                  v 4.768 h -2.35 v -4.8
+                  c 0 -.254 -.004 -.503 -.018 -.752
+                  a 2.074 2.074 0 0 0 -.143 -.688
+                  1.052 1.052 0 0 0 -.415 -.503
+                  c -.194 -.125 -.476 -.19 -.854 -.19
+                  -.111 0 -.259 .024 -.439 .074
+                  -.18 .051 -.36 .143 -.53 .282
+                  -.171 .138 -.319 .337 -.439 .595
+                  -.12 .259 -.18 .6 -.18 1.02
+                  v 4.966 H 5.46 V 7.81
+                zm
+                15.693 15.64 V .55 H 21.72 V 0 H 24 v 24 h -2.28 v -.55
+                z"
+          />
+        </a>
+      </svg>
+    </strong>
+    <a href="https:&#x2F;&#x2F;hachyderm.io&#x2F;@rustembedded", target="_blank">
+      <i class="fa-brands fa-mastodon"></i>
+    </a>
+
+</footer>
+</body>
+</html>

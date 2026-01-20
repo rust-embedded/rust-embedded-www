@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rust Embedded Working Group</title>
+  <meta name="title" content="Rust Embedded Working Group">
+<meta name="description" content="Rust Embedded Working Group
+">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+  <style>
+  @font-face {
+    font-family: "FiraSans";
+    src: url("https://rust-embedded.org/fonts/fira_sans/FiraSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FiraSans";
+    src: url("https://rust-embedded.org/fonts/fira_sans/FiraSans-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+  --width: 800px;
+  --font-main: "FiraSans", Helvetica, Arial, sans-serif;
+  --font-secondary: "FiraSans", Helvetica, Arial, sans-serif;
+  --font-scale: 1em;
+  --background-color: #fff;
+  --heading-color: #202020;
+  --text-color: #000000;
+  --link-color: #1a78c0;
+  --visited-color: #1a78c0;
+  --blockquote-color: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #202020;
+    --heading-color: #EEEEEE;
+    --text-color: #FFFFFF;
+    --link-color: #6ACFF6;
+    --visited-color: #6ACFF6;
+    --blockquote-color: #ccc;
+  }
+}
+
+body {
+  font-family: var(--font-secondary);
+  font-size: var(--font-scale);
+  margin: auto;
+  padding: 20px;
+  max-width: var(--width);
+  text-align: left;
+  background-color: var(--background-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  color: var(--heading-color);
+}
+
+a {
+  color: var(--link-color);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav a {
+  margin-right: 8px;
+}
+
+nav span.active {
+  font-weight: bold;
+  margin-right: 10px;
+}
+strong,
+b {
+  color: var(--heading-color);
+}
+
+button {
+  margin: 0;
+  cursor: pointer;
+}
+
+main {
+  line-height: 1.6;
+}
+
+table {
+  width: 100%;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dashed;
+}
+
+img {
+  max-width: 100%;
+}
+
+pre code {
+  background-color: var(--code-background-color);
+  color: var(--code-color);
+  display: block;
+  padding: 20px;
+  white-space: pre-wrap;
+  font-size: 0.875rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: monospace;
+  padding: 2px;
+  background-color: var(--code-background-color);
+  color: var(--code-color);
+  border-radius: 3px;
+}
+
+blockquote {
+  border-left: 1px solid #999;
+  color: var(--code-color);
+  padding-left: 20px;
+  font-style: italic;
+}
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+}
+
+.title:hover {
+  text-decoration: none;
+}
+
+.title h1 {
+  font-size: 1.5em;
+}
+
+.inline {
+  width: auto !important;
+}
+
+.highlight,
+.code {
+  padding: 1px 15px;
+  background-color: var(--code-background-color);
+  color: var(--code-color);
+  border-radius: 3px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  overflow-x: auto;
+}
+
+/* blog post list */
+ul.blog-posts {
+  list-style-type: none;
+  padding: unset;
+}
+
+ul.blog-posts li {
+  display: flex;
+}
+
+ul.blog-posts li span {
+  flex: 0 0 130px;
+}
+
+ul.blog-posts li a:visited {
+  color: var(--visited-color);
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  color: var(--text-color);
+}
+
+.tags {
+  font-size: smaller;
+}
+
+.footnote-definition {
+  display: flex;
+  margin-top: 1em;
+}
+.footnote-definition-label {
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+  vertical-align: baseline;
+}
+.footnote-definition-label::after {
+  content: "."
+}
+.footnote-definition > p {
+  margin: 0;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+  <a href="https://rust-embedded.org/" class="title">
+    <!-- add image on the right -->
+      <h1 style=" display: flex; align-items: center; justify-content: space-between; margin: 0;">
+        Rust Embedded Working Group
+            <img src="https://rust-embedded.org/ewg-logo-blue-white-on-transparent.svg" alt="Logo" style="height: 100px; margin-left: 10px;">
+    </h1>
+  </a>
+  <nav aria-label="site">
+      <a href="https://rust-embedded.org/">Home</a>
+      <a href="https://rust-embedded.org/bookshelf/">Bookshelf</a>
+        <a href="https:&#x2F;&#x2F;blog.rust-embedded.org&#x2F;", target="_blank">Blog</a>
+        <a href="http:&#x2F;&#x2F;showcase.rust-embedded.org&#x2F;", target="_blank">Showcase</a>
+  </nav>
+</header>
+
+  <main>
+    <h1 id="rust-on-embedded-devices-working-group">Rust on Embedded Devices Working Group</h1>
+<p>We do Embedded Rust, defined broadly as Rust for resource-constrained environments and platforms where hardware-level work is critical. Our job is to work with the community to improve the embedded ecosystem, maintain and develop core crates used for Embedded Rust, and coordinate community communication.</p>
+<p>We try to make Rust embedded development easier and better end-to-end, from targeting a piece of hardware to providing higher-level APIs and application solutions. Embedded tooling and documentation are critical here, so we work on that as well.</p>
+<p>We are an <a rel="external" href="https://rust-lang.org/governance/teams/launching-pad/#team-wg-embedded">official working group</a> of the Rust language.</p>
+<h2 id="check-out-what-s-going-on">Check out what's going on!</h2>
+<ul>
+<li>The <a rel="external" href="https://showcase.rust-embedded.org/">Embedded Rust Showcase</a> is a place to check out some of the amazing successes of embedded Rustaceans. The projects there demonstrate some of the best that Embedded Rust has to offer.</li>
+<li>Join our ongoing discussion on Matrix &lt;<a rel="external" href="https://matrix.to/#/#rust-embedded:matrix.org">#rust-embedded:matrix.org</a>&gt;! We have a weekly open meeting there every Tuesday 2000 (8PM) CET (Berlin Time) — folks are welcome to come see what we are up to.</li>
+<li>Our meeting <a rel="external" href="https://github.com/rust-embedded/wg/discussions">agenda/minutes</a> is a series of Github Discussions pages documenting what we are doing. It's a great place to nominate an existing Github Issue or PR, or any other topic that you think would benefit from a synchronous discussion.</li>
+<li>Our curated list of <a rel="external" href="https://github.com/rust-embedded/awesome-embedded-rust">Awesome Embedded Rust</a> resources is a grab-bag of great stuff.</li>
+<li>Our <a rel="external" href="https://github.com/rust-embedded/wg">REWG coordination repository</a> is the place to go for "official" information: REWG structure and leadership, RFCs, meeting minutes, etc.</li>
+</ul>
+<h2 id="learn-some-embedded-rust">Learn Some Embedded Rust!</h2>
+<ul>
+<li>The <a rel="external" href="https://docs.rust-embedded.org/discovery-mb2/">MB2 Discovery Book</a> is a complete walkthrough of Rust development for Embedded Rust beginners, targeted to a platform and filled with examples.</li>
+<li>The <a rel="external" href="https://docs.rust-embedded.org/book">Embedded Rust Book</a> is our entry point for developers experienced in Rust and embedded.</li>
+<li>The <a rel="external" href="https://docs.rust-embedded.org/embedonomicon/">Embedonomicon</a> covers important "under the hood" topics for advanced Embedded Rust. An appendix provides instructions to vendors wishing to bring their targets into the Embedded Rust ecosystem.</li>
+<li>We have an entire <a href="https://rust-embedded.org/bookshelf/">"bookshelf"</a> of embedded Rust documents. Some are a bit out of date, but we encourage you to check there for other things you might want to know.</li>
+</ul>
+<h2 id="want-to-help">Want to help?</h2>
+<p>Everyone can contribute to the Rust Embedded WG efforts! There are several ways to help out:</p>
+<ul>
+<li>We offer a Github repo where you can file <a rel="external" href="https://github.com/rust-embedded/wg/issues">REWG Issues</a>: let us know where the gaps are! If you think the language, the compiler, the tooling, the documentation or the crate ecosystem is lacking some feature, information or library to build embedded software, let us know. We'll bring it up to the Rust teams or help organize the community to build crates or tools to fill gaps.</li>
+<li>We encourage you to participate in our <a rel="external" href="https://github.com/search?q=org%3Arust-embedded+is%3Aopen+label%3Arfc&amp;type=Issues">RFC (Request For Comments)</a> process. We are always looking into ways to improve. This may involve things like changing how we run the WG or making major breaking changes in core crates. To ensure we are <em>actually</em> making things better we need your input! That's why all these changes are preceded by an "RFC", a discussion thread (which may or may not be backed by a proper RFC document) where we evaluate the pros and cons of a proposal and explore alternatives. Only after there's consensus on accepting the proposal is the proposal made effective.</li>
+<li>There's always a pile of <a rel="external" href="https://github.com/search?q=org%3Arust-embedded+is%3Aopen+label%3A%22help+wanted%22&amp;type=Issues">help-wanted issues</a>, but the WG members only have so much free time. You can help us fixing bugs, implementing features, writing tests, trying out examples and tutorials, writing documentation, fixing typos, etc. We can often mentor you through these tasks and review your work. In some cases you may not even need previous embedded experience or access to embedded hardware to help us out so don't let that discourage you from checking out our help-wanted issues.</li>
+<li>We have several teams focused on different areas: tooling, Cortex-M crates, etc. Each team maintains several projects (crates, docs and / or tools) that live under the REWG Github organization. You can help with these projects informally. You may subsequently be invited to join a team.</li>
+</ul>
+<h2 id="our-vision">Our Vision</h2>
+<ul>
+<li>To improve the absolute quality (functionality, safety, performance) of embedded software in the wild.</li>
+<li>To improve the productivity of embedded software development teams, by reducing the tangible and intangible costs of achieving a level of quality.</li>
+<li>To improve the experience for programmers developing for embedded systems.</li>
+<li>To make embedded systems programming more accessible for people that are not already embedded systems developers.</li>
+</ul>
+
+  </main>
+<!-- <link rel="stylesheet" href="https://rust-embedded.org/fonts/fontawesome/css/all.min.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous">
+
+<footer>
+    <a href="https:&#x2F;&#x2F;github.com&#x2F;rust-embedded", target="_blank">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <strong>
+      <!-- This is the Matrix icon as an inline SVG -->
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <a href="https:&#x2F;&#x2F;matrix.to&#x2F;#&#x2F;#rust-embedded:matrix.org", target="_blank">
+          <path
+              fill="currentColor"
+              d="
+                M .632 .55 v 22.9 H 2.28 V 24 H 0 V 0 h 2.28 v .55
+                zm
+                7.043 7.26 v 1.157 h .033
+                  c .309 -.443 .683 -.784 1.117 -1.024
+                  .433 -.245 .936 -.365 1.5 -.365
+                  .54 0 1.033 .107 1.481 .314
+                  .448 .208 .785 .582 1.02 1.108
+                  .254 -.374 .6 -.706 1.034 -.992
+                  .434 -.287 .95 -.43 1.546 -.43
+                  .453 0 .872 .056 1.26 .167
+                  .388 .11 .716 .286 .993 .53
+                  .276 .245 .489 .559 .646 .951
+                  .152 .392 .23 .863 .23 1.417
+                  v 5.728 h -2.349 V 11.52
+                  c 0 -.286 -.01 -.559 -.032 -.812
+                  a 1.755 1.755 0 0 0 -.18 -.66
+                  1.106 1.106 0 0 0 -.438 -.448
+                  c -.194 -.11 -.457 -.166 -.785 -.166
+                  -.332 0 -.6 .064 -.803 .189
+                  a 1.38 1.38 0 0 0 -.48 .499
+                  1.946 1.946 0 0 0 -.231 .696
+                  5.56 5.56 0 0 0 -.06 .785
+                  v 4.768 h -2.35 v -4.8
+                  c 0 -.254 -.004 -.503 -.018 -.752
+                  a 2.074 2.074 0 0 0 -.143 -.688
+                  1.052 1.052 0 0 0 -.415 -.503
+                  c -.194 -.125 -.476 -.19 -.854 -.19
+                  -.111 0 -.259 .024 -.439 .074
+                  -.18 .051 -.36 .143 -.53 .282
+                  -.171 .138 -.319 .337 -.439 .595
+                  -.12 .259 -.18 .6 -.18 1.02
+                  v 4.966 H 5.46 V 7.81
+                zm
+                15.693 15.64 V .55 H 21.72 V 0 H 24 v 24 h -2.28 v -.55
+                z"
+          />
+        </a>
+      </svg>
+    </strong>
+    <a href="https:&#x2F;&#x2F;hachyderm.io&#x2F;@rustembedded", target="_blank">
+      <i class="fa-brands fa-mastodon"></i>
+    </a>
+
+</footer>
+</body>
+</html>
